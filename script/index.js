@@ -41,6 +41,6 @@ console.log('asasas');
 
 btnsOpenModal.forEach(buttonModal => {
   buttonModal.addEventListener('click', () => {
-    openModal(modal);
+    openModal();
   });
 });

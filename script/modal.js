@@ -1,18 +1,31 @@
-// Modal windows
+import { overlay, modal } from './elements.js';
 
-import { overlay } from './elements.js';
-
-const handleClick = evt => {
-  // console.log(evt.target);
+const closeModal = () => {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
 };
 
-export const openModal = modalWIndow => {
-  modalWIndow.classList.remove('hidden');
+const handleModalClick = evt => {
+  if (evt.target.classList.contains('btn--close-modal')) {
+    closeModal();
+  }
+};
+
+const handleOverlayClick = () => {
+  closeModal();
+};
+
+const handleEscClose = evt => {
+  if (evt.key === 'Escape' ?? !modal.classList.contains('hidden')) closeModal();
+};
+
+modal.addEventListener('click', handleModalClick);
+overlay.addEventListener('click', handleOverlayClick);
+window.addEventListener('keydown', handleEscClose);
+
+export const openModal = () => {
+  modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
-  modalWIndow.addEventListener('click', handleClick);
 };
 
-document.addEventListener('keydown', evt => {
-  console.log('target:', evt.target);
-  console.log('currentTarget:', evt.currentTarget);
-});
+// export { closeModal };
