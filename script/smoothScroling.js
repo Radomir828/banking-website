@@ -1,6 +1,4 @@
-// functions for smoothe scrolling when we click on 'Learn more' element
+// functions for smoothe scrolling
 
-const sectionOne = document.getElementById('section--1');
-
-export const smoothScrollToSectionOne = () =>
-  sectionOne.scrollIntoView({ behavior: 'smooth' });
+export const smoothScroll = element =>
+  element.scrollIntoView({ behavior: 'smooth' });
