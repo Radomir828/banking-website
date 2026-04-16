@@ -19,3 +19,5 @@ export const allTabs = document.querySelectorAll('.operations__tab');
 export const allContentElements = document.querySelectorAll(
   '.operations__content ',
 );
+
+export const header = document.querySelector('.header');

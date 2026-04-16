@@ -7,10 +7,12 @@ import {
   sectionOne,
   tabContainer,
   nav,
+  header,
 } from './elements.js';
 import { openModal } from './modal.js';
 import { smoothScroll, handleNavHover } from './functions.js';
 import { handleTabs } from './tabs.js';
+import { headerObserver } from './stickyNav.js';
 
 btnsOpenModal.forEach(buttonModal => {
   buttonModal.addEventListener('click', () => {
@@ -37,3 +39,6 @@ tabContainer.addEventListener('click', evt => {
 // effect when we hover header element, all other links fade out
 nav.addEventListener('mouseover', handleNavHover.bind(0.5));
 nav.addEventListener('mouseout', handleNavHover.bind(1));
+
+// sticky navigation
+headerObserver.observe(header);
