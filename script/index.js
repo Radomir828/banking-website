@@ -6,9 +6,10 @@ import {
   navContainer,
   sectionOne,
   tabContainer,
+  nav,
 } from './elements.js';
 import { openModal } from './modal.js';
-import { smoothScroll } from './smoothScroling.js';
+import { smoothScroll, handleNavHover } from './functions.js';
 import { handleTabs } from './tabs.js';
 
 btnsOpenModal.forEach(buttonModal => {
@@ -29,23 +30,10 @@ navContainer.addEventListener('click', e => {
 });
 
 // implementig tab components
-
 tabContainer.addEventListener('click', evt => {
   handleTabs(evt);
-  // const allTabs = document.querySelectorAll('.operations__tab');
-
-  // allTabs.forEach(tab => tab.classList.remove('operations__tab--active'));
-
-  // const clickedTab = e.target.closest('.operations__tab');
-  // if (!clickedTab) return;
-  // clickedTab.classList.add('operations__tab--active');
-
-  // const contentId = clickedTab.dataset.tab;
-  // const content = document.querySelector(`.operations__content--${contentId}`);
-  // const allContentElements = document.querySelectorAll('.operations__content ');
-  // allContentElements.forEach(el =>
-  //   el.classList.remove('operations__content--active'),
-  // );
-
-  // content.classList.add('operations__content--active');
 });
+
+// effect when we hover header element, all other links fade out
+nav.addEventListener('mouseover', handleNavHover.bind(0.5));
+nav.addEventListener('mouseout', handleNavHover.bind(1));
