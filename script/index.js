@@ -9,12 +9,14 @@ import {
   nav,
   header,
   allSeсtions,
+  images,
 } from './elements.js';
 import { openModal } from './modal.js';
 import { smoothScroll, handleNavHover } from './functions.js';
 import { handleTabs } from './tabs.js';
 import { headerObserver } from './stickyNav.js';
 import { sectionObserver } from './sectionReveal.js';
+import { imageObserver } from './imgLazyLoad.js';
 
 btnsOpenModal.forEach(buttonModal => {
   buttonModal.addEventListener('click', () => {
@@ -46,24 +48,12 @@ nav.addEventListener('mouseout', handleNavHover.bind(1));
 headerObserver.observe(header);
 
 // reveal sections
-
-// const showSection = (entries, observer) => {
-//   // const [entry] = entries;
-//   console.log(entries);
-//   entries.forEach(entry => {
-//     if (!entry.isIntersecting) return;
-//     entry.target.classList.remove('section--hidden');
-//     observer.unobserve(entry.target);
-//   });
-// };
-
-// const obj = {
-//   root: null,
-//   threshold: 0.15,
-// };
-
-// const sectionObserver = new IntersectionObserver(showSection, obj);
 allSeсtions.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
+});
+
+// image lazy load
+images.forEach(image => {
+  imageObserver.observe(image);
 });

@@ -22,3 +22,5 @@ export const allContentElements = document.querySelectorAll(
 
 export const header = document.querySelector('.header');
 export const allSeсtions = document.querySelectorAll('.section');
+
+export const images = document.querySelectorAll('.features__img');
