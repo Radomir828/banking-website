@@ -8,11 +8,13 @@ import {
   tabContainer,
   nav,
   header,
+  allSeсtions,
 } from './elements.js';
 import { openModal } from './modal.js';
 import { smoothScroll, handleNavHover } from './functions.js';
 import { handleTabs } from './tabs.js';
 import { headerObserver } from './stickyNav.js';
+import { sectionObserver } from './sectionReveal.js';
 
 btnsOpenModal.forEach(buttonModal => {
   buttonModal.addEventListener('click', () => {
@@ -42,3 +44,26 @@ nav.addEventListener('mouseout', handleNavHover.bind(1));
 
 // sticky navigation
 headerObserver.observe(header);
+
+// reveal sections
+
+// const showSection = (entries, observer) => {
+//   // const [entry] = entries;
+//   console.log(entries);
+//   entries.forEach(entry => {
+//     if (!entry.isIntersecting) return;
+//     entry.target.classList.remove('section--hidden');
+//     observer.unobserve(entry.target);
+//   });
+// };
+
+// const obj = {
+//   root: null,
+//   threshold: 0.15,
+// };
+
+// const sectionObserver = new IntersectionObserver(showSection, obj);
+allSeсtions.forEach(section => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
