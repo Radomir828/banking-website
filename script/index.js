@@ -17,6 +17,7 @@ import { handleTabs } from './tabs.js';
 import { headerObserver } from './stickyNav.js';
 import { sectionObserver } from './sectionReveal.js';
 import { imageObserver } from './imgLazyLoad.js';
+import { initSliders } from './slider.js';
 
 btnsOpenModal.forEach(buttonModal => {
   buttonModal.addEventListener('click', () => {
@@ -57,3 +58,6 @@ allSeсtions.forEach(section => {
 images.forEach(image => {
   imageObserver.observe(image);
 });
+
+// slider component(all the logic is in the slider.js file)
+initSliders();

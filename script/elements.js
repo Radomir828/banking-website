@@ -24,3 +24,8 @@ export const header = document.querySelector('.header');
 export const allSeсtions = document.querySelectorAll('.section');
 
 export const images = document.querySelectorAll('.features__img');
+
+export const slides = document.querySelectorAll('.slide');
+export const btnRight = document.querySelector('.slider__btn--right');
+export const btnLeft = document.querySelector('.slider__btn--left');
+export const dotsContainer = document.querySelector('.dots');
